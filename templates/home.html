@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Current Stock Prices</h1>
+{% if ticker %}
+
+{{ ticker }}
+
+{% endif %}
+{% if api %}
+{% if api == "Error" %}
+There was a problem with your ticker symbol
+{% else %}
+<h2>{{ api.companyName }}</h2> <br>
+Price: ${{ api.latestPrice }} <br>
+Previous Close: ${{ api.previousClose}} <br>
+Market Capitalize: $ {{ api.marketCap}}
+
+
+
+
+{% endif %}
+
+
+{% endif %}
+{% endblock content %}
